@@ -28,70 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridViewArchived = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonDeletePermanent = new System.Windows.Forms.Button();
             this.buttonRenew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonRestoreRegularMember = new System.Windows.Forms.Button();
+            this.buttonRestoreStudentMember = new System.Windows.Forms.Button();
+            this.checkBoxStudent = new System.Windows.Forms.CheckBox();
+            this.checkBoxRegular = new System.Windows.Forms.CheckBox();
+            this.dataGridViewArchived = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchived)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewArchived
-            // 
-            this.dataGridViewArchived.AllowUserToAddRows = false;
-            this.dataGridViewArchived.AllowUserToDeleteRows = false;
-            this.dataGridViewArchived.AllowUserToResizeColumns = false;
-            this.dataGridViewArchived.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            this.dataGridViewArchived.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewArchived.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewArchived.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewArchived.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewArchived.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewArchived.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewArchived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewArchived.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewArchived.EnableHeadersVisualStyles = false;
-            this.dataGridViewArchived.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewArchived.Location = new System.Drawing.Point(53, 111);
-            this.dataGridViewArchived.Margin = new System.Windows.Forms.Padding(10);
-            this.dataGridViewArchived.MultiSelect = false;
-            this.dataGridViewArchived.Name = "dataGridViewArchived";
-            this.dataGridViewArchived.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewArchived.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewArchived.RowHeadersVisible = false;
-            this.dataGridViewArchived.RowHeadersWidth = 51;
-            this.dataGridViewArchived.RowTemplate.Height = 80;
-            this.dataGridViewArchived.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArchived.Size = new System.Drawing.Size(1163, 424);
-            this.dataGridViewArchived.TabIndex = 18;
             // 
             // buttonDeletePermanent
             // 
@@ -127,11 +79,115 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBoxRegular);
+            this.panel1.Controls.Add(this.checkBoxStudent);
+            this.panel1.Controls.Add(this.buttonRestoreStudentMember);
+            this.panel1.Controls.Add(this.dataGridViewArchived);
+            this.panel1.Controls.Add(this.buttonRestoreRegularMember);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1810, 1008);
             this.panel1.TabIndex = 31;
+            // 
+            // buttonRestoreRegularMember
+            // 
+            this.buttonRestoreRegularMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRestoreRegularMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestoreRegularMember.Location = new System.Drawing.Point(908, 35);
+            this.buttonRestoreRegularMember.Name = "buttonRestoreRegularMember";
+            this.buttonRestoreRegularMember.Size = new System.Drawing.Size(238, 63);
+            this.buttonRestoreRegularMember.TabIndex = 34;
+            this.buttonRestoreRegularMember.Text = "Restore";
+            this.buttonRestoreRegularMember.UseVisualStyleBackColor = false;
+            this.buttonRestoreRegularMember.Click += new System.EventHandler(this.buttonRestoreRegularMember_Click);
+            // 
+            // buttonRestoreStudentMember
+            // 
+            this.buttonRestoreStudentMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRestoreStudentMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestoreStudentMember.Location = new System.Drawing.Point(642, 35);
+            this.buttonRestoreStudentMember.Name = "buttonRestoreStudentMember";
+            this.buttonRestoreStudentMember.Size = new System.Drawing.Size(238, 63);
+            this.buttonRestoreStudentMember.TabIndex = 35;
+            this.buttonRestoreStudentMember.Text = "Restore";
+            this.buttonRestoreStudentMember.UseVisualStyleBackColor = false;
+            this.buttonRestoreStudentMember.Click += new System.EventHandler(this.buttonRestoreStudentMember_Click);
+            // 
+            // checkBoxStudent
+            // 
+            this.checkBoxStudent.AutoSize = true;
+            this.checkBoxStudent.Location = new System.Drawing.Point(71, 561);
+            this.checkBoxStudent.Name = "checkBoxStudent";
+            this.checkBoxStudent.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxStudent.TabIndex = 36;
+            this.checkBoxStudent.Text = "Student";
+            this.checkBoxStudent.UseVisualStyleBackColor = true;
+            this.checkBoxStudent.CheckedChanged += new System.EventHandler(this.checkBoxStudent_CheckedChanged);
+            // 
+            // checkBoxRegular
+            // 
+            this.checkBoxRegular.AutoSize = true;
+            this.checkBoxRegular.Location = new System.Drawing.Point(186, 561);
+            this.checkBoxRegular.Name = "checkBoxRegular";
+            this.checkBoxRegular.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxRegular.TabIndex = 37;
+            this.checkBoxRegular.Text = "Regular";
+            this.checkBoxRegular.UseVisualStyleBackColor = true;
+            this.checkBoxRegular.CheckedChanged += new System.EventHandler(this.checkBoxRegular_CheckedChanged);
+            // 
+            // dataGridViewArchived
+            // 
+            this.dataGridViewArchived.AllowUserToAddRows = false;
+            this.dataGridViewArchived.AllowUserToDeleteRows = false;
+            this.dataGridViewArchived.AllowUserToResizeColumns = false;
+            this.dataGridViewArchived.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.dataGridViewArchived.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewArchived.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewArchived.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewArchived.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewArchived.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewArchived.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewArchived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewArchived.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewArchived.EnableHeadersVisualStyles = false;
+            this.dataGridViewArchived.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewArchived.Location = new System.Drawing.Point(50, 111);
+            this.dataGridViewArchived.Margin = new System.Windows.Forms.Padding(10);
+            this.dataGridViewArchived.MultiSelect = false;
+            this.dataGridViewArchived.Name = "dataGridViewArchived";
+            this.dataGridViewArchived.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewArchived.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewArchived.RowHeadersVisible = false;
+            this.dataGridViewArchived.RowHeadersWidth = 51;
+            this.dataGridViewArchived.RowTemplate.Height = 80;
+            this.dataGridViewArchived.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewArchived.Size = new System.Drawing.Size(1163, 424);
+            this.dataGridViewArchived.TabIndex = 18;
             // 
             // ArchiveForm
             // 
@@ -141,22 +197,26 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.buttonRenew);
             this.Controls.Add(this.buttonDeletePermanent);
-            this.Controls.Add(this.dataGridViewArchived);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ArchiveForm";
             this.Text = "ArchiveForm";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchived)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewArchived;
         private System.Windows.Forms.Button buttonDeletePermanent;
         private System.Windows.Forms.Button buttonRenew;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonRestoreStudentMember;
+        private System.Windows.Forms.Button buttonRestoreRegularMember;
+        private System.Windows.Forms.CheckBox checkBoxRegular;
+        private System.Windows.Forms.CheckBox checkBoxStudent;
+        private System.Windows.Forms.DataGridView dataGridViewArchived;
     }
 }
