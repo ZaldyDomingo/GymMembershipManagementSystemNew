@@ -62,6 +62,8 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.buttonCamera = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMember)).BeginInit();
             this.panel19.SuspendLayout();
@@ -122,7 +124,6 @@
             this.pictureBoxMember.TabIndex = 83;
             this.pictureBoxMember.TabStop = false;
             this.pictureBoxMember.WaitOnLoad = true;
-            this.pictureBoxMember.Click += new System.EventHandler(this.pictureBoxMember_Click);
             // 
             // label1
             // 
@@ -414,12 +415,36 @@
             this.panel11.Size = new System.Drawing.Size(515, 1);
             this.panel11.TabIndex = 100;
             // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse.Location = new System.Drawing.Point(377, 132);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(116, 47);
+            this.buttonBrowse.TabIndex = 102;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // buttonCamera
+            // 
+            this.buttonCamera.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCamera.Location = new System.Drawing.Point(377, 70);
+            this.buttonCamera.Name = "buttonCamera";
+            this.buttonCamera.Size = new System.Drawing.Size(116, 47);
+            this.buttonCamera.TabIndex = 101;
+            this.buttonCamera.Text = "Camera";
+            this.buttonCamera.UseVisualStyleBackColor = true;
+            this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
+            // 
             // NewMemberNotStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 696);
+            this.Controls.Add(this.buttonBrowse);
+            this.Controls.Add(this.buttonCamera);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
@@ -498,5 +523,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.Button buttonCamera;
     }
 }

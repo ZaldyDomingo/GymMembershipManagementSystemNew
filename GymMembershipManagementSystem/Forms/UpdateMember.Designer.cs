@@ -71,6 +71,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.buttonCamera = new System.Windows.Forms.Button();
             this.panel19.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -265,14 +267,13 @@
             // 
             this.pictureBoxMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pictureBoxMember.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMember.Image")));
-            this.pictureBoxMember.Location = new System.Drawing.Point(244, 80);
+            this.pictureBoxMember.Location = new System.Drawing.Point(244, 73);
             this.pictureBoxMember.Name = "pictureBoxMember";
             this.pictureBoxMember.Size = new System.Drawing.Size(120, 116);
             this.pictureBoxMember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMember.TabIndex = 98;
             this.pictureBoxMember.TabStop = false;
             this.pictureBoxMember.WaitOnLoad = true;
-            this.pictureBoxMember.Click += new System.EventHandler(this.pictureBoxMember_Click);
             // 
             // textBoxAddress
             // 
@@ -495,12 +496,36 @@
             this.label13.TabIndex = 119;
             this.label13.Text = "Mobile Number";
             // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse.Location = new System.Drawing.Point(370, 135);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(116, 47);
+            this.buttonBrowse.TabIndex = 121;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // buttonCamera
+            // 
+            this.buttonCamera.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCamera.Location = new System.Drawing.Point(370, 73);
+            this.buttonCamera.Name = "buttonCamera";
+            this.buttonCamera.Size = new System.Drawing.Size(116, 47);
+            this.buttonCamera.TabIndex = 120;
+            this.buttonCamera.Text = "Camera";
+            this.buttonCamera.UseVisualStyleBackColor = true;
+            this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
+            // 
             // UpdateMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 740);
+            this.Controls.Add(this.buttonBrowse);
+            this.Controls.Add(this.buttonCamera);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -598,5 +623,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.Button buttonCamera;
     }
 }

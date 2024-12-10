@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymMembershipManagementSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video;
+using AForge.Video.DirectShow;
+
 
 namespace GymMembershipManagementSystem
 {
@@ -278,7 +282,14 @@ namespace GymMembershipManagementSystem
 
         private void buttonCamera_Click(object sender, EventArgs e)
         {
-
+            using (CameraCaptureForm cameraCaptureForm = new CameraCaptureForm())
+            {
+                if (cameraCaptureForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Set the captured image as the profile picture
+                    pictureBoxMember.Image = cameraCaptureForm.CapturedImage;
+                }
+            }
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)

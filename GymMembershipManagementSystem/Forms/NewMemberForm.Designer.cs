@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMemberForm));
             this.panelMain = new System.Windows.Forms.Panel();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.buttonCamera = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,8 +67,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonCamera = new System.Windows.Forms.Button();
-            this.buttonBrowse = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -116,6 +116,28 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(600, 696);
             this.panelMain.TabIndex = 0;
+            // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse.Location = new System.Drawing.Point(377, 132);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(116, 47);
+            this.buttonBrowse.TabIndex = 81;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // buttonCamera
+            // 
+            this.buttonCamera.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCamera.Location = new System.Drawing.Point(377, 70);
+            this.buttonCamera.Name = "buttonCamera";
+            this.buttonCamera.Size = new System.Drawing.Size(116, 47);
+            this.buttonCamera.TabIndex = 80;
+            this.buttonCamera.Text = "Camera";
+            this.buttonCamera.UseVisualStyleBackColor = true;
+            this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
             // 
             // panel13
             // 
@@ -452,28 +474,6 @@
             this.buttonBack.TabIndex = 40;
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // buttonCamera
-            // 
-            this.buttonCamera.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCamera.Location = new System.Drawing.Point(377, 70);
-            this.buttonCamera.Name = "buttonCamera";
-            this.buttonCamera.Size = new System.Drawing.Size(116, 47);
-            this.buttonCamera.TabIndex = 80;
-            this.buttonCamera.Text = "Camera";
-            this.buttonCamera.UseVisualStyleBackColor = true;
-            this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
-            // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBrowse.Location = new System.Drawing.Point(377, 132);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(116, 47);
-            this.buttonBrowse.TabIndex = 81;
-            this.buttonBrowse.Text = "Browse";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // NewMemberForm
             // 

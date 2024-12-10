@@ -63,6 +63,15 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -189,6 +198,12 @@
     </Compile>
     <Compile Include="Forms\CalendarUserInteract.Designer.cs">
       <DependentUpon>CalendarUserInteract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CameraCaptureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CameraCaptureForm.Designer.cs">
+      <DependentUpon>CameraCaptureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CheckInListForm.cs">
       <SubType>Form</SubType>
@@ -325,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CalendarUserInteract.resx">
       <DependentUpon>CalendarUserInteract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CameraCaptureForm.resx">
+      <DependentUpon>CameraCaptureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CheckInListForm.resx">
       <DependentUpon>CheckInListForm.cs</DependentUpon>

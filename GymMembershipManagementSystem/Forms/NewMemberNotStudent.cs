@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymMembershipManagementSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -260,19 +261,6 @@ namespace GymMembershipManagementSystem
             this.Close();
         }
 
-        private void pictureBoxMember_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBoxMember.Image = new Bitmap(openFileDialog.FileName);
-            }
-        }
-
         private void dateTimePickerDOB_ValueChanged(object sender, EventArgs e)
         {
             CalculateAndSetAge();
@@ -289,6 +277,31 @@ namespace GymMembershipManagementSystem
 
             // Update the age textbox
             textBoxAge.Text = age.ToString();
+        }
+
+        private void buttonCamera_Click(object sender, EventArgs e)
+        {
+            using (CameraCaptureForm cameraCaptureForm = new CameraCaptureForm())
+            {
+                if (cameraCaptureForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Set the captured image as the profile picture
+                    pictureBoxMember.Image = cameraCaptureForm.CapturedImage;
+                }
+            }
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxMember.Image = new Bitmap(openFileDialog.FileName);
+            }
         }
     }
 }
