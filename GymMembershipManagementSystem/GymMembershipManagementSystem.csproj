@@ -181,7 +181,10 @@
       <DependentUpon>ArchiveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\CurrentUser.cs" />
-    <Compile Include="Classes\roundedPanel.cs">
+    <Compile Include="ShadowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="roundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\CalendarUserInteract.cs">
