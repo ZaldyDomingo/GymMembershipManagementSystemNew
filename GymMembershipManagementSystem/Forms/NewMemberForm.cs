@@ -258,12 +258,6 @@ namespace GymMembershipManagementSystem
         {
             this.Close();
         }
-
-        private void pictureBoxMember_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dateTimePickerDOB_ValueChanged(object sender, EventArgs e)
         {
             CalculateAndSetAge();
