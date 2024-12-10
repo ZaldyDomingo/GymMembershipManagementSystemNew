@@ -54,7 +54,6 @@ namespace GymMembershipManagementSystem
                 };
                 dataGridViewArchived.Columns.Insert(0, checkBoxColumn);
             }
-
       
             foreach (DataGridViewColumn column in dataGridViewArchived.Columns)
             {
