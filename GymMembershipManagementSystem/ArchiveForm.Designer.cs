@@ -33,14 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonDeletePermanent = new System.Windows.Forms.Button();
-            this.buttonRenew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonRestoreRegularMember = new System.Windows.Forms.Button();
-            this.buttonRestoreStudentMember = new System.Windows.Forms.Button();
-            this.checkBoxStudent = new System.Windows.Forms.CheckBox();
             this.checkBoxRegular = new System.Windows.Forms.CheckBox();
+            this.checkBoxStudent = new System.Windows.Forms.CheckBox();
+            this.buttonRestoreStudentMember = new System.Windows.Forms.Button();
             this.dataGridViewArchived = new System.Windows.Forms.DataGridView();
+            this.buttonRestoreRegularMember = new System.Windows.Forms.Button();
+            this.buttonRenewRegular = new System.Windows.Forms.Button();
+            this.buttonRenewStudent = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchived)).BeginInit();
             this.SuspendLayout();
@@ -57,18 +58,6 @@
             this.buttonDeletePermanent.UseVisualStyleBackColor = false;
             this.buttonDeletePermanent.Click += new System.EventHandler(this.buttonDeletePermanent_Click);
             // 
-            // buttonRenew
-            // 
-            this.buttonRenew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            this.buttonRenew.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRenew.Location = new System.Drawing.Point(371, 35);
-            this.buttonRenew.Name = "buttonRenew";
-            this.buttonRenew.Size = new System.Drawing.Size(238, 63);
-            this.buttonRenew.TabIndex = 29;
-            this.buttonRenew.Text = "Re-new";
-            this.buttonRenew.UseVisualStyleBackColor = false;
-            this.buttonRenew.Click += new System.EventHandler(this.buttonRenew_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
@@ -79,6 +68,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonRenewStudent);
+            this.panel1.Controls.Add(this.buttonRenewRegular);
             this.panel1.Controls.Add(this.checkBoxRegular);
             this.panel1.Controls.Add(this.checkBoxStudent);
             this.panel1.Controls.Add(this.buttonRestoreStudentMember);
@@ -90,29 +81,16 @@
             this.panel1.Size = new System.Drawing.Size(1810, 1008);
             this.panel1.TabIndex = 31;
             // 
-            // buttonRestoreRegularMember
+            // checkBoxRegular
             // 
-            this.buttonRestoreRegularMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            this.buttonRestoreRegularMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRestoreRegularMember.Location = new System.Drawing.Point(908, 35);
-            this.buttonRestoreRegularMember.Name = "buttonRestoreRegularMember";
-            this.buttonRestoreRegularMember.Size = new System.Drawing.Size(238, 63);
-            this.buttonRestoreRegularMember.TabIndex = 34;
-            this.buttonRestoreRegularMember.Text = "Restore";
-            this.buttonRestoreRegularMember.UseVisualStyleBackColor = false;
-            this.buttonRestoreRegularMember.Click += new System.EventHandler(this.buttonRestoreRegularMember_Click);
-            // 
-            // buttonRestoreStudentMember
-            // 
-            this.buttonRestoreStudentMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            this.buttonRestoreStudentMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRestoreStudentMember.Location = new System.Drawing.Point(642, 35);
-            this.buttonRestoreStudentMember.Name = "buttonRestoreStudentMember";
-            this.buttonRestoreStudentMember.Size = new System.Drawing.Size(238, 63);
-            this.buttonRestoreStudentMember.TabIndex = 35;
-            this.buttonRestoreStudentMember.Text = "Restore";
-            this.buttonRestoreStudentMember.UseVisualStyleBackColor = false;
-            this.buttonRestoreStudentMember.Click += new System.EventHandler(this.buttonRestoreStudentMember_Click);
+            this.checkBoxRegular.AutoSize = true;
+            this.checkBoxRegular.Location = new System.Drawing.Point(186, 561);
+            this.checkBoxRegular.Name = "checkBoxRegular";
+            this.checkBoxRegular.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxRegular.TabIndex = 37;
+            this.checkBoxRegular.Text = "Regular";
+            this.checkBoxRegular.UseVisualStyleBackColor = true;
+            this.checkBoxRegular.CheckedChanged += new System.EventHandler(this.checkBoxRegular_CheckedChanged);
             // 
             // checkBoxStudent
             // 
@@ -125,16 +103,17 @@
             this.checkBoxStudent.UseVisualStyleBackColor = true;
             this.checkBoxStudent.CheckedChanged += new System.EventHandler(this.checkBoxStudent_CheckedChanged);
             // 
-            // checkBoxRegular
+            // buttonRestoreStudentMember
             // 
-            this.checkBoxRegular.AutoSize = true;
-            this.checkBoxRegular.Location = new System.Drawing.Point(186, 561);
-            this.checkBoxRegular.Name = "checkBoxRegular";
-            this.checkBoxRegular.Size = new System.Drawing.Size(79, 21);
-            this.checkBoxRegular.TabIndex = 37;
-            this.checkBoxRegular.Text = "Regular";
-            this.checkBoxRegular.UseVisualStyleBackColor = true;
-            this.checkBoxRegular.CheckedChanged += new System.EventHandler(this.checkBoxRegular_CheckedChanged);
+            this.buttonRestoreStudentMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRestoreStudentMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestoreStudentMember.Location = new System.Drawing.Point(417, 35);
+            this.buttonRestoreStudentMember.Name = "buttonRestoreStudentMember";
+            this.buttonRestoreStudentMember.Size = new System.Drawing.Size(238, 63);
+            this.buttonRestoreStudentMember.TabIndex = 35;
+            this.buttonRestoreStudentMember.Text = "Restore";
+            this.buttonRestoreStudentMember.UseVisualStyleBackColor = false;
+            this.buttonRestoreStudentMember.Click += new System.EventHandler(this.buttonRestoreStudentMember_Click);
             // 
             // dataGridViewArchived
             // 
@@ -189,13 +168,48 @@
             this.dataGridViewArchived.Size = new System.Drawing.Size(1163, 424);
             this.dataGridViewArchived.TabIndex = 18;
             // 
+            // buttonRestoreRegularMember
+            // 
+            this.buttonRestoreRegularMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRestoreRegularMember.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestoreRegularMember.Location = new System.Drawing.Point(690, 35);
+            this.buttonRestoreRegularMember.Name = "buttonRestoreRegularMember";
+            this.buttonRestoreRegularMember.Size = new System.Drawing.Size(238, 63);
+            this.buttonRestoreRegularMember.TabIndex = 34;
+            this.buttonRestoreRegularMember.Text = "Restore";
+            this.buttonRestoreRegularMember.UseVisualStyleBackColor = false;
+            this.buttonRestoreRegularMember.Click += new System.EventHandler(this.buttonRestoreRegularMember_Click);
+            // 
+            // buttonRenewRegular
+            // 
+            this.buttonRenewRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRenewRegular.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRenewRegular.Location = new System.Drawing.Point(417, 548);
+            this.buttonRenewRegular.Name = "buttonRenewRegular";
+            this.buttonRenewRegular.Size = new System.Drawing.Size(238, 63);
+            this.buttonRenewRegular.TabIndex = 38;
+            this.buttonRenewRegular.Text = "Re-new";
+            this.buttonRenewRegular.UseVisualStyleBackColor = false;
+            this.buttonRenewRegular.Click += new System.EventHandler(this.buttonRenewRegular_Click);
+            // 
+            // buttonRenewStudent
+            // 
+            this.buttonRenewStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            this.buttonRenewStudent.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRenewStudent.Location = new System.Drawing.Point(690, 548);
+            this.buttonRenewStudent.Name = "buttonRenewStudent";
+            this.buttonRenewStudent.Size = new System.Drawing.Size(238, 63);
+            this.buttonRenewStudent.TabIndex = 39;
+            this.buttonRenewStudent.Text = "Re-new";
+            this.buttonRenewStudent.UseVisualStyleBackColor = false;
+            this.buttonRenewStudent.Click += new System.EventHandler(this.buttonRenewStudent_Click);
+            // 
             // ArchiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1810, 1008);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.buttonRenew);
             this.Controls.Add(this.buttonDeletePermanent);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,7 +224,6 @@
 
         #endregion
         private System.Windows.Forms.Button buttonDeletePermanent;
-        private System.Windows.Forms.Button buttonRenew;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonRestoreStudentMember;
@@ -218,5 +231,7 @@
         private System.Windows.Forms.CheckBox checkBoxRegular;
         private System.Windows.Forms.CheckBox checkBoxStudent;
         private System.Windows.Forms.DataGridView dataGridViewArchived;
+        private System.Windows.Forms.Button buttonRenewRegular;
+        private System.Windows.Forms.Button buttonRenewStudent;
     }
 }

@@ -31,6 +31,7 @@ namespace GymMembershipManagementSystem
             buttonCheck.Click += buttonCheck_Click;
             buttonCancel.Click += buttonCancel_Click;
             dataGridViewStudent.CellContentClick += dataGridViewStudent_CellContentClick;
+            
         }
         private void SetupDataGridView()
         {
@@ -70,7 +71,7 @@ namespace GymMembershipManagementSystem
         private void InitializeSearchTimer()
         {
             searchTimer = new Timer();
-            searchTimer.Interval = 500; // 500ms delay
+            searchTimer.Interval = 500; 
             searchTimer.Tick += searchTimer_Tick;
         }
         private void InitializeDatabaseConnection()
@@ -108,11 +109,7 @@ namespace GymMembershipManagementSystem
                 }
 
                 dataTable.AcceptChanges();
-
-
                 dataGridViewStudent.DataSource = dataTable;
-
-
                 dataGridViewStudent.Columns["Age"].Visible = false;
                 dataGridViewStudent.Columns["ProfileImage"].Visible = false;
                 dataGridViewStudent.Columns["DateOfBirth"].Visible = false;
@@ -130,9 +127,6 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while loading student data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
         private void dataGridViewStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try

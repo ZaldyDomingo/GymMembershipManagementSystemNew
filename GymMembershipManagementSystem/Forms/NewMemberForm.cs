@@ -190,7 +190,6 @@ namespace GymMembershipManagementSystem
                         {
                             MessageBox.Show($"Member registered, but failed to generate invoice: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-
                         // Clear form
                         ClearFormFields();
                         this.Close();
@@ -205,6 +204,7 @@ namespace GymMembershipManagementSystem
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private string GetSavePath(string defaultFileName)
         {

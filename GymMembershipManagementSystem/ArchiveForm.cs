@@ -32,7 +32,6 @@ namespace GymMembershipManagementSystem
             dataGridViewArchived.Columns["MembershipFee"].Visible = false;
             dataGridViewArchived.Columns["Email"].Visible = false;
             dataGridViewArchived.Columns["MembershipEndDate"].Visible = false;
-
         }
         private void SetupDataGridView()
         {
@@ -72,6 +71,38 @@ namespace GymMembershipManagementSystem
                 else
                     column.ReadOnly = true; 
             }
+        }
+        private void LabelHeaderDatagridViewSpacing()
+        {
+            if (dataGridViewArchived.Columns.Contains("FirstName"))
+                dataGridViewArchived.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewArchived.Columns.Contains("LastName"))
+                dataGridViewArchived.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewArchived.Columns.Contains("MobileNumber"))
+                dataGridViewArchived.Columns["MobileNumber"].HeaderText = "Phone Number";
+
+            if (dataGridViewArchived.Columns.Contains("RemainingDays"))
+                dataGridViewArchived.Columns["RemainingDays"].HeaderText = "Days Left";
+
+            if (dataGridViewArchived.Columns.Contains("EmergencyContactPhone"))
+                dataGridViewArchived.Columns["EmergencyContactPhone"].HeaderText = "Emergency No";
+
+            if (dataGridViewArchived.Columns.Contains("MembershipStartDate"))
+                dataGridViewArchived.Columns["MembershipStartDate"].HeaderText = "Date Started";
+
+            if (dataGridViewArchived.Columns.Contains("RegularMemberId"))
+                dataGridViewArchived.Columns["RegularMemberId"].HeaderText = "Member Id";
+
+            if (dataGridViewArchived.Columns.Contains("StudentId"))
+                dataGridViewArchived.Columns["StudentId"].HeaderText = "Member Id";
+
+            if (dataGridViewArchived.Columns.Contains("ArchiveDate"))
+                dataGridViewArchived.Columns["ArchiveDate"].HeaderText = "Archived Date";
+
+            if (dataGridViewArchived.Columns.Contains("ArchivedDate"))
+                dataGridViewArchived.Columns["ArchivedDate"].HeaderText = "Archived Date";
         }
         private void LoadArchivedMembers()
         {
@@ -118,10 +149,6 @@ namespace GymMembershipManagementSystem
             {
                 MessageBox.Show($"An error occurred while loading archived members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-        private void buttonRenew_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -201,31 +228,257 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while deleting members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LabelHeaderDatagridViewSpacing() 
+
+        private void buttonRenewStudent_Click(object sender, EventArgs e)
         {
-            if (dataGridViewArchived.Columns.Contains("FirstName"))
-                dataGridViewArchived.Columns["FirstName"].HeaderText = "First Name";
+            try
+            {
+                List<int> selectedIds = new List<int>();
 
-            if (dataGridViewArchived.Columns.Contains("LastName"))
-                dataGridViewArchived.Columns["LastName"].HeaderText = "Last Name";
+                // Iterate through the rows and gather selected IDs
+                foreach (DataGridViewRow row in dataGridViewArchived.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                    {
+                        int memberId = Convert.ToInt32(row.Cells["StudentId"].Value); // For Student members
+                        selectedIds.Add(memberId);
+                    }
+                }
 
-            if (dataGridViewArchived.Columns.Contains("MobileNumber"))
-                dataGridViewArchived.Columns["MobileNumber"].HeaderText = "Phone Number";
+                if (selectedIds.Count == 0)
+                {
+                    MessageBox.Show("Please select at least one member to renew.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            if (dataGridViewArchived.Columns.Contains("RemainingDays"))
-                dataGridViewArchived.Columns["RemainingDays"].HeaderText = "Days Left";
+                // Confirm renewal
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to renew the selected members?",
+                    "Confirm Renewal",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
-            if (dataGridViewArchived.Columns.Contains("EmergencyContactPhone"))
-                dataGridViewArchived.Columns["EmergencyContactPhone"].HeaderText = "Emergency No";
+                if (result == DialogResult.Yes)
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
 
-            if (dataGridViewArchived.Columns.Contains("MembershipStartDate"))
-                dataGridViewArchived.Columns["MembershipStartDate"].HeaderText = "Date Started";
+                        foreach (int memberId in selectedIds)
+                        {
+                            // Fetch the selected student's data
+                            string selectQuery = "SELECT * FROM [gymMembership].[dbo].[ArchivedStudentMember] WHERE [StudentId] = @MemberId";
+                            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+                            {
+                                selectCommand.Parameters.AddWithValue("@MemberId", memberId);
 
-            if (dataGridViewArchived.Columns.Contains("RegularMemberId"))
-                dataGridViewArchived.Columns["RegularMemberId"].HeaderText = "Member Id";
+                                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                                {
+                                    if (reader.Read())
+                                    {
+                                        // Get the data
+                                        string firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                                        string lastName = reader.GetString(reader.GetOrdinal("LastName"));
+                                        DateTime dateOfBirth = reader.GetDateTime(reader.GetOrdinal("DateOfBirth"));
+                                        int age = reader.GetInt32(reader.GetOrdinal("Age"));
+                                        string gender = reader.GetString(reader.GetOrdinal("Gender"));
+                                        string address = reader.GetString(reader.GetOrdinal("Address"));
+                                        string mobileNumber = reader.GetString(reader.GetOrdinal("MobileNumber"));
+                                        string email = reader.GetString(reader.GetOrdinal("Email"));
+                                        string emergencyContactName = reader.GetString(reader.GetOrdinal("EmergencyContactName"));
+                                        string emergencyContactPhone = reader.GetString(reader.GetOrdinal("EmergencyContactPhone"));
+                                        byte[] profileImage = reader.IsDBNull(reader.GetOrdinal("ProfileImage")) ? null : (byte[])reader["ProfileImage"];
+                                        decimal membershipFee = reader.GetDecimal(reader.GetOrdinal("MembershipFee"));
 
-            if (dataGridViewArchived.Columns.Contains("StudentId"))
-                dataGridViewArchived.Columns["StudentId"].HeaderText = "Member Id";
+                                        // Reset the date-related fields
+                                        DateTime membershipStartDate = DateTime.Now;
+                                        DateTime membershipEndDate = membershipStartDate.AddYears(1); // Assuming 1 year membership
+                                        DateTime dateJoined = DateTime.Now;
+
+                                        // Close the reader before executing updates
+                                        reader.Close();
+
+                                        // Insert the renewed data into the StudentMember table
+                                        string insertQuery = @"
+                                    INSERT INTO [gymMembership].[dbo].[StudentMember] 
+                                    ([FirstName], [LastName], [DateOfBirth], [Age], [Gender], 
+                                     [Address], [MobileNumber], [Email], [EmergencyContactName], [EmergencyContactPhone], 
+                                     [DateJoined], [ProfileImage], [MembershipStartDate], [MembershipFee], [MembershipEndDate])
+                                    VALUES
+                                    (@FirstName, @LastName, @DateOfBirth, @Age, @Gender, 
+                                     @Address, @MobileNumber, @Email, @EmergencyContactName, @EmergencyContactPhone, 
+                                     @DateJoined, @ProfileImage, @MembershipStartDate, @MembershipFee, @MembershipEndDate)";
+                                        using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                                        {
+                                            insertCommand.Parameters.AddWithValue("@FirstName", firstName);
+                                            insertCommand.Parameters.AddWithValue("@LastName", lastName);
+                                            insertCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                                            insertCommand.Parameters.AddWithValue("@Age", age);
+                                            insertCommand.Parameters.AddWithValue("@Gender", gender);
+                                            insertCommand.Parameters.AddWithValue("@Address", address);
+                                            insertCommand.Parameters.AddWithValue("@MobileNumber", mobileNumber);
+                                            insertCommand.Parameters.AddWithValue("@Email", email);
+                                            insertCommand.Parameters.AddWithValue("@EmergencyContactName", emergencyContactName);
+                                            insertCommand.Parameters.AddWithValue("@EmergencyContactPhone", emergencyContactPhone);
+                                            insertCommand.Parameters.AddWithValue("@DateJoined", dateJoined);
+                                            insertCommand.Parameters.AddWithValue("@ProfileImage", (object)profileImage ?? DBNull.Value);
+                                            insertCommand.Parameters.AddWithValue("@MembershipStartDate", membershipStartDate);
+                                            insertCommand.Parameters.AddWithValue("@MembershipFee", membershipFee);
+                                            insertCommand.Parameters.AddWithValue("@MembershipEndDate", membershipEndDate);
+
+                                            insertCommand.ExecuteNonQuery();
+                                        }
+
+                                        // Remove the member from ArchivedStudentMember table
+                                        string deleteQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedStudentMember] WHERE [StudentId] = @MemberId";
+                                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                                        {
+                                            deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
+                                            deleteCommand.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Selected student members have been renewed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload the archived members to reflect the changes
+                    LoadArchivedMembers();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while renewing student members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonRenewRegular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<int> selectedIds = new List<int>();
+
+                // Iterate through the rows and gather selected IDs
+                foreach (DataGridViewRow row in dataGridViewArchived.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                    {
+                        int memberId = Convert.ToInt32(row.Cells["RegularMemberId"].Value); // For Regular members
+                        selectedIds.Add(memberId);
+                    }
+                }
+
+                if (selectedIds.Count == 0)
+                {
+                    MessageBox.Show("Please select at least one member to renew.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Confirm renewal
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to renew the selected members?",
+                    "Confirm Renewal",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        foreach (int memberId in selectedIds)
+                        {
+                            // Fetch the selected regular member's data
+                            string selectQuery = "SELECT * FROM [gymMembership].[dbo].[ArchivedRegularMember] WHERE [RegularMemberId] = @MemberId";
+                            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+                            {
+                                selectCommand.Parameters.AddWithValue("@MemberId", memberId);
+
+                                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                                {
+                                    if (reader.Read())
+                                    {
+                                        // Get the data
+                                        string firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                                        string lastName = reader.GetString(reader.GetOrdinal("LastName"));
+                                        DateTime dateOfBirth = reader.GetDateTime(reader.GetOrdinal("DateOfBirth"));
+                                        int age = reader.GetInt32(reader.GetOrdinal("Age"));
+                                        string gender = reader.GetString(reader.GetOrdinal("Gender"));
+                                        string address = reader.GetString(reader.GetOrdinal("Address"));
+                                        string mobileNumber = reader.GetString(reader.GetOrdinal("MobileNumber"));
+                                        string email = reader.GetString(reader.GetOrdinal("Email"));
+                                        string emergencyContactName = reader.GetString(reader.GetOrdinal("EmergencyContactName"));
+                                        string emergencyContactPhone = reader.GetString(reader.GetOrdinal("EmergencyContactPhone"));
+                                        byte[] profileImage = reader.IsDBNull(reader.GetOrdinal("ProfileImage")) ? null : (byte[])reader["ProfileImage"];
+                                        decimal membershipFee = reader.GetDecimal(reader.GetOrdinal("MembershipFee"));
+
+                                        // Reset the date-related fields
+                                        DateTime membershipStartDate = DateTime.Now;
+                                        DateTime membershipEndDate = membershipStartDate.AddYears(1); // Assuming 1 year membership
+                                        DateTime dateJoined = DateTime.Now;
+
+                                        // Close the reader before executing updates
+                                        reader.Close();
+
+                                        // Insert the renewed data into the RegularMember table
+                                        string insertQuery = @"
+                                    INSERT INTO [gymMembership].[dbo].[RegularMember] 
+                                    ([FirstName], [LastName], [DateOfBirth], [Age], [Gender], 
+                                     [Address], [MobileNumber], [Email], [EmergencyContactName], [EmergencyContactPhone], 
+                                     [DateJoined], [ProfileImage], [MembershipStartDate], [MembershipFee], [MembershipEndDate])
+                                    VALUES
+                                    (@FirstName, @LastName, @DateOfBirth, @Age, @Gender, 
+                                     @Address, @MobileNumber, @Email, @EmergencyContactName, @EmergencyContactPhone, 
+                                     @DateJoined, @ProfileImage, @MembershipStartDate, @MembershipFee, @MembershipEndDate)";
+                                        using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                                        {
+                                            insertCommand.Parameters.AddWithValue("@FirstName", firstName);
+                                            insertCommand.Parameters.AddWithValue("@LastName", lastName);
+                                            insertCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                                            insertCommand.Parameters.AddWithValue("@Age", age);
+                                            insertCommand.Parameters.AddWithValue("@Gender", gender);
+                                            insertCommand.Parameters.AddWithValue("@Address", address);
+                                            insertCommand.Parameters.AddWithValue("@MobileNumber", mobileNumber);
+                                            insertCommand.Parameters.AddWithValue("@Email", email);
+                                            insertCommand.Parameters.AddWithValue("@EmergencyContactName", emergencyContactName);
+                                            insertCommand.Parameters.AddWithValue("@EmergencyContactPhone", emergencyContactPhone);
+                                            insertCommand.Parameters.AddWithValue("@DateJoined", dateJoined);
+                                            insertCommand.Parameters.AddWithValue("@ProfileImage", (object)profileImage ?? DBNull.Value);
+                                            insertCommand.Parameters.AddWithValue("@MembershipStartDate", membershipStartDate);
+                                            insertCommand.Parameters.AddWithValue("@MembershipFee", membershipFee);
+                                            insertCommand.Parameters.AddWithValue("@MembershipEndDate", membershipEndDate);
+
+                                            insertCommand.ExecuteNonQuery();
+                                        }
+
+                                        // Remove the member from ArchivedRegularMember table
+                                        string deleteQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedRegularMember] WHERE [RegularMemberId] = @MemberId";
+                                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                                        {
+                                            deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
+                                            deleteCommand.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Selected regular members have been renewed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload the archived members to reflect the changes
+                    LoadArchivedMembers();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while renewing regular members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void buttonRestoreStudentMember_Click(object sender, EventArgs e)
         {
@@ -388,7 +641,7 @@ namespace GymMembershipManagementSystem
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        connection.Open();  // Open the connection once at the beginning of the method
+                        connection.Open();  
 
                         foreach (int memberId in selectedIds)
                         {
@@ -486,12 +739,13 @@ namespace GymMembershipManagementSystem
                 checkBoxRegular.Checked = false;
                 buttonRestoreRegularMember.Hide(); 
                 buttonRestoreStudentMember.Show();
+                buttonRenewRegular.Hide();
+                buttonRenewStudent.Show();
                 LoadArchivedMembers(); // Load regular members
                 LabelHeaderDatagridViewSpacing();
             }
 
         }
-
         private void checkBoxRegular_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxRegular.Checked)
@@ -499,7 +753,9 @@ namespace GymMembershipManagementSystem
                 checkBoxStudent.Checked = false;
                 buttonRestoreStudentMember.Hide(); 
                 buttonRestoreRegularMember.Show();
-                LoadArchivedMembers(); // Load regular members
+                buttonRenewStudent.Hide();
+                buttonRenewRegular.Show();
+                LoadArchivedMembers(); 
                 LabelHeaderDatagridViewSpacing();
             }
         }
