@@ -172,12 +172,14 @@
             // 
             // textBoxAge
             // 
+            this.textBoxAge.BackColor = System.Drawing.Color.White;
             this.textBoxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAge.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAge.Location = new System.Drawing.Point(421, 320);
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAge.Multiline = true;
             this.textBoxAge.Name = "textBoxAge";
+            this.textBoxAge.ReadOnly = true;
             this.textBoxAge.Size = new System.Drawing.Size(136, 21);
             this.textBoxAge.TabIndex = 78;
             // 
@@ -249,6 +251,7 @@
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(337, 26);
             this.dateTimePickerDOB.TabIndex = 72;
+            this.dateTimePickerDOB.ValueChanged += new System.EventHandler(this.dateTimePickerDOB_ValueChanged);
             // 
             // radioButtonMale
             // 

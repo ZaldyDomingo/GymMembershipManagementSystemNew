@@ -28,6 +28,7 @@ namespace GymMembershipManagementSystem
             MaskedEmail();
             MaskedGuardianFullName();
             MaskedGuardianMobileNumber();
+            dateTimePickerDOB.ValueChanged += dateTimePickerDOB_ValueChanged; 
         }
         private void MaskedAddressText()
         {
@@ -270,6 +271,24 @@ namespace GymMembershipManagementSystem
             {
                 pictureBoxMember.Image = new Bitmap(openFileDialog.FileName);
             }
+        }
+
+        private void dateTimePickerDOB_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateAndSetAge();
+        }
+        private void CalculateAndSetAge()
+        {
+            DateTime dob = dateTimePickerDOB.Value;
+            DateTime today = DateTime.Today;
+
+            int age = today.Year - dob.Year;
+
+            // Adjust for the case where the birthday hasn't occurred yet this year
+            if (dob.Date > today.AddYears(-age)) age--;
+
+            // Update the age textbox
+            textBoxAge.Text = age.ToString();
         }
     }
 }

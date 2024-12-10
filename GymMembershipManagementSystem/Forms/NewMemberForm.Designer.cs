@@ -65,6 +65,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonCamera = new System.Windows.Forms.Button();
+            this.buttonBrowse = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -76,6 +78,8 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
+            this.panelMain.Controls.Add(this.buttonBrowse);
+            this.panelMain.Controls.Add(this.buttonCamera);
             this.panelMain.Controls.Add(this.panel13);
             this.panelMain.Controls.Add(this.panel15);
             this.panelMain.Controls.Add(this.panel2);
@@ -294,7 +298,6 @@
             this.pictureBoxMember.TabIndex = 60;
             this.pictureBoxMember.TabStop = false;
             this.pictureBoxMember.WaitOnLoad = true;
-            this.pictureBoxMember.Click += new System.EventHandler(this.pictureBoxMember_Click);
             // 
             // textBoxAddress
             // 
@@ -325,10 +328,12 @@
             // 
             // textBoxAge
             // 
+            this.textBoxAge.BackColor = System.Drawing.Color.White;
             this.textBoxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAge.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAge.Location = new System.Drawing.Point(421, 319);
             this.textBoxAge.Name = "textBoxAge";
+            this.textBoxAge.ReadOnly = true;
             this.textBoxAge.Size = new System.Drawing.Size(136, 21);
             this.textBoxAge.TabIndex = 54;
             // 
@@ -371,6 +376,7 @@
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(337, 26);
             this.dateTimePickerDOB.TabIndex = 50;
+            this.dateTimePickerDOB.ValueChanged += new System.EventHandler(this.dateTimePickerDOB_ValueChanged);
             // 
             // radioButtonMale
             // 
@@ -447,6 +453,28 @@
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // buttonCamera
+            // 
+            this.buttonCamera.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCamera.Location = new System.Drawing.Point(377, 70);
+            this.buttonCamera.Name = "buttonCamera";
+            this.buttonCamera.Size = new System.Drawing.Size(116, 47);
+            this.buttonCamera.TabIndex = 80;
+            this.buttonCamera.Text = "Camera";
+            this.buttonCamera.UseVisualStyleBackColor = true;
+            this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
+            // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse.Location = new System.Drawing.Point(377, 132);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(116, 47);
+            this.buttonBrowse.TabIndex = 81;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
             // NewMemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -508,5 +536,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.Button buttonCamera;
     }
 }

@@ -167,7 +167,7 @@
             this.textBoxGuardianNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxGuardianNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGuardianNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGuardianNumber.Location = new System.Drawing.Point(44, 638);
+            this.textBoxGuardianNumber.Location = new System.Drawing.Point(44, 639);
             this.textBoxGuardianNumber.Name = "textBoxGuardianNumber";
             this.textBoxGuardianNumber.Size = new System.Drawing.Size(246, 21);
             this.textBoxGuardianNumber.TabIndex = 86;
@@ -177,7 +177,7 @@
             this.textBoxGuardianFullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxGuardianFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGuardianFullName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGuardianFullName.Location = new System.Drawing.Point(44, 588);
+            this.textBoxGuardianFullName.Location = new System.Drawing.Point(44, 590);
             this.textBoxGuardianFullName.Name = "textBoxGuardianFullName";
             this.textBoxGuardianFullName.Size = new System.Drawing.Size(246, 21);
             this.textBoxGuardianFullName.TabIndex = 84;
@@ -279,7 +279,7 @@
             this.textBoxAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAddress.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddress.Location = new System.Drawing.Point(44, 270);
+            this.textBoxAddress.Location = new System.Drawing.Point(44, 272);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(515, 21);
             this.textBoxAddress.TabIndex = 97;
@@ -289,7 +289,7 @@
             this.textBoxMobileNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxMobileNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMobileNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMobileNumber.Location = new System.Drawing.Point(44, 415);
+            this.textBoxMobileNumber.Location = new System.Drawing.Point(44, 417);
             this.textBoxMobileNumber.Name = "textBoxMobileNumber";
             this.textBoxMobileNumber.Size = new System.Drawing.Size(292, 21);
             this.textBoxMobileNumber.TabIndex = 96;
@@ -299,7 +299,7 @@
             this.textBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmail.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(44, 479);
+            this.textBoxEmail.Location = new System.Drawing.Point(44, 481);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(515, 21);
             this.textBoxEmail.TabIndex = 95;
@@ -309,8 +309,9 @@
             this.textBoxAge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAge.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(423, 344);
+            this.textBoxAge.Location = new System.Drawing.Point(423, 346);
             this.textBoxAge.Name = "textBoxAge";
+            this.textBoxAge.ReadOnly = true;
             this.textBoxAge.Size = new System.Drawing.Size(136, 21);
             this.textBoxAge.TabIndex = 94;
             // 
@@ -341,7 +342,7 @@
             this.textBoxFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFirstName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstName.Location = new System.Drawing.Point(44, 209);
+            this.textBoxFirstName.Location = new System.Drawing.Point(44, 211);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(234, 21);
             this.textBoxFirstName.TabIndex = 91;
@@ -354,6 +355,7 @@
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(337, 26);
             this.dateTimePickerDOB.TabIndex = 90;
+            this.dateTimePickerDOB.ValueChanged += new System.EventHandler(this.dateTimePickerDOB_ValueChanged);
             // 
             // radioButtonMale
             // 
@@ -384,7 +386,7 @@
             this.textBoxLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLastName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastName.Location = new System.Drawing.Point(325, 209);
+            this.textBoxLastName.Location = new System.Drawing.Point(325, 211);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(234, 21);
             this.textBoxLastName.TabIndex = 87;

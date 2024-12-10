@@ -48,7 +48,18 @@ namespace GymMembershipManagementSystem
             dataAdapter.Fill(dataTable);
 
             dataGridViewMembers.DataSource = dataTable;
-            dataGridViewMembers.Columns["MemberId"].Visible = false;
+
+            if (dataGridViewMembers.Columns.Contains("MemberId"))
+                dataGridViewMembers.Columns["MemberId"].HeaderText = "Member ID";
+
+            if (dataGridViewMembers.Columns.Contains("FirstName"))
+                dataGridViewMembers.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewMembers.Columns.Contains("LastName"))
+                dataGridViewMembers.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewMembers.Columns.Contains("MemberType"))
+                dataGridViewMembers.Columns["MemberType"].HeaderText = "Member Type";
         }
 
         private void dataGridViewMembers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -128,7 +128,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(380, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(384, -1);
             this.pictureBox3.MaximumSize = new System.Drawing.Size(20, 20);
             this.pictureBox3.MinimumSize = new System.Drawing.Size(20, 20);
             this.pictureBox3.Name = "pictureBox3";
@@ -143,7 +143,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 28);
+            this.label1.Location = new System.Drawing.Point(119, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 27);
             this.label1.TabIndex = 0;
