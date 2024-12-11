@@ -248,12 +248,12 @@ namespace GymMembershipManagementSystem
 
             foreach (DataGridViewRow row in dataGridViewRegular.Rows)
             {
-                DataGridViewCheckBoxCell checkBoxCell = row.Cells["Select"] as DataGridViewCheckBoxCell;
-                if (checkBoxCell != null)
+                if (row.Cells["Select"] is DataGridViewCheckBoxCell checkBoxCell)
                 {
-                    checkBoxCell.Value = isChecked; // Check or uncheck all checkboxes
+                    checkBoxCell.Value = isChecked; 
                 }
             }
+            dataGridViewRegular.RefreshEdit();
         }
         private void ToggleMultiDeleteMode(bool isMultiDeleteMode)
         {

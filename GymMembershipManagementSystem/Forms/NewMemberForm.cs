@@ -282,7 +282,7 @@ namespace GymMembershipManagementSystem
 
         private void buttonCamera_Click(object sender, EventArgs e)
         {
-            using (CameraCaptureForm cameraCaptureForm = new CameraCaptureForm())
+                using (CameraCaptureForm cameraCaptureForm = new CameraCaptureForm())
             {
                 if (cameraCaptureForm.ShowDialog() == DialogResult.OK)
                 {

@@ -157,6 +157,7 @@ namespace GymMembershipManagementSystem
             try
             {
                 List<int> selectedIds = new List<int>();
+                bool isStudentMember = checkBoxStudent.Checked; // Identify if we're handling Student or Regular members
 
                 // Iterate through the rows and check the checkboxes to gather selected IDs
                 foreach (DataGridViewRow row in dataGridViewArchived.Rows)
@@ -165,15 +166,26 @@ namespace GymMembershipManagementSystem
                     if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
                     {
                         int memberId;
-                        if (row.Cells["StudentId"].Value != DBNull.Value)
+
+                        // Determine the correct ID column based on the loaded data
+                        if (isStudentMember)
                         {
-                            memberId = Convert.ToInt32(row.Cells["StudentId"].Value); // For Student members
+                            // Use StudentId if we're handling Student members
+                            if (row.Cells["StudentId"].Value != DBNull.Value)
+                            {
+                                memberId = Convert.ToInt32(row.Cells["StudentId"].Value);
+                                selectedIds.Add(memberId);
+                            }
                         }
                         else
                         {
-                            memberId = Convert.ToInt32(row.Cells["RegularMemberId"].Value); // For Regular members
+                            // Use RegularMemberId if we're handling Regular members
+                            if (row.Cells["RegularMemberId"].Value != DBNull.Value)
+                            {
+                                memberId = Convert.ToInt32(row.Cells["RegularMemberId"].Value);
+                                selectedIds.Add(memberId);
+                            }
                         }
-                        selectedIds.Add(memberId);
                     }
                 }
 
@@ -199,20 +211,25 @@ namespace GymMembershipManagementSystem
 
                         foreach (int memberId in selectedIds)
                         {
-                            // SQL query to delete from ArchivedStudentMember table
-                            string deleteStudentQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedStudentMember] WHERE [StudentId] = @MemberId";
-                            using (SqlCommand deleteCommand = new SqlCommand(deleteStudentQuery, connection))
+                            if (isStudentMember)
                             {
-                                deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
-                                deleteCommand.ExecuteNonQuery();
+                                // SQL query to delete from ArchivedStudentMember table
+                                string deleteStudentQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedStudentMember] WHERE [StudentId] = @MemberId";
+                                using (SqlCommand deleteCommand = new SqlCommand(deleteStudentQuery, connection))
+                                {
+                                    deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
+                                    deleteCommand.ExecuteNonQuery();
+                                }
                             }
-
-                            // SQL query to delete from ArchivedMembers table (in case of regular members)
-                            string deleteRegularQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedMembers] WHERE [RegularMemberId] = @MemberId";
-                            using (SqlCommand deleteCommand = new SqlCommand(deleteRegularQuery, connection))
+                            else
                             {
-                                deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
-                                deleteCommand.ExecuteNonQuery();
+                                // SQL query to delete from ArchivedMembers table
+                                string deleteRegularQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedMembers] WHERE [RegularMemberId] = @MemberId";
+                                using (SqlCommand deleteCommand = new SqlCommand(deleteRegularQuery, connection))
+                                {
+                                    deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
+                                    deleteCommand.ExecuteNonQuery();
+                                }
                             }
                         }
                     }
@@ -228,7 +245,33 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while deleting members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void checkBoxStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxStudent.Checked)
+            {
+                checkBoxRegular.Checked = false;
+                buttonRestoreRegularMember.Hide();
+                buttonRestoreStudentMember.Show();
+                buttonRenewRegular.Hide();
+                buttonRenewStudent.Show();
+                LoadArchivedMembers(); // Load regular members
+                LabelHeaderDatagridViewSpacing();
+            }
 
+        }
+        private void checkBoxRegular_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxRegular.Checked)
+            {
+                checkBoxStudent.Checked = false;
+                buttonRestoreStudentMember.Hide();
+                buttonRestoreRegularMember.Show();
+                buttonRenewStudent.Hide();
+                buttonRenewRegular.Show();
+                LoadArchivedMembers();
+                LabelHeaderDatagridViewSpacing();
+            }
+        }
         private void buttonRenewStudent_Click(object sender, EventArgs e)
         {
             try
@@ -394,7 +437,7 @@ namespace GymMembershipManagementSystem
                         foreach (int memberId in selectedIds)
                         {
                             // Fetch the selected regular member's data
-                            string selectQuery = "SELECT * FROM [gymMembership].[dbo].[ArchivedRegularMember] WHERE [RegularMemberId] = @MemberId";
+                            string selectQuery = "SELECT * FROM [gymMembership].[dbo].[ArchivedMembers] WHERE [RegularMemberId] = @MemberId";
                             using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                             {
                                 selectCommand.Parameters.AddWithValue("@MemberId", memberId);
@@ -457,7 +500,7 @@ namespace GymMembershipManagementSystem
                                         }
 
                                         // Remove the member from ArchivedRegularMember table
-                                        string deleteQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedRegularMember] WHERE [RegularMemberId] = @MemberId";
+                                        string deleteQuery = "DELETE FROM [gymMembership].[dbo].[ArchivedMembers] WHERE [RegularMemberId] = @MemberId";
                                         using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                                         {
                                             deleteCommand.Parameters.AddWithValue("@MemberId", memberId);
@@ -732,32 +775,6 @@ namespace GymMembershipManagementSystem
             }
         }
 
-        private void checkBoxStudent_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxStudent.Checked)
-            {
-                checkBoxRegular.Checked = false;
-                buttonRestoreRegularMember.Hide(); 
-                buttonRestoreStudentMember.Show();
-                buttonRenewRegular.Hide();
-                buttonRenewStudent.Show();
-                LoadArchivedMembers(); // Load regular members
-                LabelHeaderDatagridViewSpacing();
-            }
 
-        }
-        private void checkBoxRegular_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxRegular.Checked)
-            {
-                checkBoxStudent.Checked = false;
-                buttonRestoreStudentMember.Hide(); 
-                buttonRestoreRegularMember.Show();
-                buttonRenewStudent.Hide();
-                buttonRenewRegular.Show();
-                LoadArchivedMembers(); 
-                LabelHeaderDatagridViewSpacing();
-            }
-        }
     }
 }
