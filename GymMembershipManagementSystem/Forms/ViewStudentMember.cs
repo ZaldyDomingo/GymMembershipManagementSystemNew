@@ -224,9 +224,8 @@ namespace GymMembershipManagementSystem
 
         private void DataGridViewStudent_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (!isHeaderCheckBoxHandled && e.RowIndex == -1 && e.ColumnIndex == 0) // Check header row
+            if (!isHeaderCheckBoxHandled && e.RowIndex == -1 && e.ColumnIndex == 0) 
             {
-                // Position the checkbox inside the header cell
                 var cellRectangle = dataGridViewStudent.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 headerCheckBox.Location = new Point(cellRectangle.X + (cellRectangle.Width - headerCheckBox.Width) / 2, cellRectangle.Y + (cellRectangle.Height - headerCheckBox.Height) / 2);
 
@@ -238,6 +237,9 @@ namespace GymMembershipManagementSystem
         }
         private void HeaderCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            if (!dataGridViewStudent.Columns.Contains("Select"))
+                return;
+
             bool isChecked = headerCheckBox.Checked;
 
             foreach (DataGridViewRow row in dataGridViewStudent.Rows)
@@ -291,7 +293,7 @@ namespace GymMembershipManagementSystem
                     dataGridViewStudent.Columns.Remove("Select");
                 }
 
-                // Hide the header checkbox
+                // Hide and reset the header checkbox
                 if (headerCheckBox != null)
                 {
                     headerCheckBox.Visible = false;
@@ -302,6 +304,7 @@ namespace GymMembershipManagementSystem
                 dataGridViewStudent.ReadOnly = true; // Revert to read-only mode
             }
         }
+
         private void ArchiveSelectedStudents(List<int> studentIds)
         {
             try
@@ -364,13 +367,14 @@ namespace GymMembershipManagementSystem
                     foreach (DataGridViewRow row in dataGridViewStudent.Rows)
                     {
                         // Check if the checkbox in the "Select" column is checked
-                        if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                        if (row.Cells["Select"].Value != null && Convert.ToBoolean(row.Cells["Select"].Value) == true)
                         {
                             int studentId = Convert.ToInt32(row.Cells["StudentId"].Value);
                             selectedIds.Add(studentId);
                         }
                     }
                 }
+
 
                 if (selectedIds.Count == 0)
                 {

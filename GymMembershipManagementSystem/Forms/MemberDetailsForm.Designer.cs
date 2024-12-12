@@ -58,21 +58,13 @@
             this.pictureBoxProfileImage = new GymMembershipManagementSystem.roundedPictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.roundedPictureBox2 = new GymMembershipManagementSystem.roundedPictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.roundedPictureBox1 = new GymMembershipManagementSystem.roundedPictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel19.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
@@ -373,37 +365,6 @@
             this.panel15.Size = new System.Drawing.Size(27, 703);
             this.panel15.TabIndex = 79;
             // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel19.Controls.Add(this.label9);
-            this.panel19.Controls.Add(this.roundedPictureBox2);
-            this.panel19.Location = new System.Drawing.Point(27, 41);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(548, 83);
-            this.panel19.TabIndex = 80;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(185, 27);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(237, 27);
-            this.label9.TabIndex = 87;
-            this.label9.Text = "C.H.C Fitness Center";
-            // 
-            // roundedPictureBox2
-            // 
-            this.roundedPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBox2.Image")));
-            this.roundedPictureBox2.Location = new System.Drawing.Point(7, 5);
-            this.roundedPictureBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.roundedPictureBox2.Name = "roundedPictureBox2";
-            this.roundedPictureBox2.Size = new System.Drawing.Size(80, 74);
-            this.roundedPictureBox2.TabIndex = 86;
-            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(108)))), ((int)(((byte)(97)))));
@@ -412,37 +373,6 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(738, 27);
             this.panel14.TabIndex = 81;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.roundedPictureBox1);
-            this.panel2.Location = new System.Drawing.Point(161, 661);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(550, 83);
-            this.panel2.TabIndex = 82;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(155, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(237, 27);
-            this.label10.TabIndex = 88;
-            this.label10.Text = "C.H.C Fitness Center";
-            // 
-            // roundedPictureBox1
-            // 
-            this.roundedPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBox1.Image")));
-            this.roundedPictureBox1.Location = new System.Drawing.Point(465, 4);
-            this.roundedPictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.roundedPictureBox1.Name = "roundedPictureBox1";
-            this.roundedPictureBox1.Size = new System.Drawing.Size(80, 74);
-            this.roundedPictureBox1.TabIndex = 85;
             // 
             // panel4
             // 
@@ -510,8 +440,6 @@
             this.ClientSize = new System.Drawing.Size(738, 771);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel19);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.buttonCheckInRegular);
@@ -550,10 +478,6 @@
             this.Name = "MemberDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MemberDetailsForm";
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -592,17 +516,11 @@
         private System.Windows.Forms.Button buttonCheckInRegular;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel14;
-        private roundedPictureBox roundedPictureBox2;
-        private System.Windows.Forms.Panel panel2;
-        private roundedPictureBox roundedPictureBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
     }
