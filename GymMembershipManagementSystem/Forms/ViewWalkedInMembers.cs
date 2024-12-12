@@ -21,6 +21,23 @@ namespace GymMembershipManagementSystem
             InitializeDatabaseConnection();
             SetupDataGridView();
             SetupTimer();
+            if (dataGridViewNewWalkin.Columns.Contains("FirstName"))
+                dataGridViewNewWalkin.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewNewWalkin.Columns.Contains("LastName"))
+                dataGridViewNewWalkin.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewNewWalkin.Columns.Contains("RegistrationDate"))
+                dataGridViewNewWalkin.Columns["RegistrationDate"].HeaderText = "RegistrationDate";
+
+            if (dataGridViewOldWalkedin.Columns.Contains("FirstName"))
+                dataGridViewOldWalkedin.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewOldWalkedin.Columns.Contains("LastName"))
+                dataGridViewOldWalkedin.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewOldWalkedin.Columns.Contains("RegistrationDate"))
+                dataGridViewOldWalkedin.Columns["RegistrationDate"].HeaderText = "RegistrationDate";
         }
         private void SetupDataGridView()
         {
@@ -34,6 +51,7 @@ namespace GymMembershipManagementSystem
             dataGridViewOldWalkedin.RowTemplate.Height = 28;
             dataGridViewOldWalkedin.ColumnHeadersHeight = 28;
             dataGridViewOldWalkedin.SelectionChanged += dataGridViewOldWalkedin_SelectionChanged;
+
 
         }
         private void InitializeDatabaseConnection()
@@ -51,12 +69,6 @@ namespace GymMembershipManagementSystem
             };
             refreshTimer.Start(); 
         }
-
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ViewWalkedInMembers_Load(object sender, EventArgs e)
         {
             LoadNewWalkInMember();  // Load the most recent walk-in member
@@ -89,6 +101,16 @@ namespace GymMembershipManagementSystem
             {
                 MessageBox.Show($"Error loading new walk-in member: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            if (dataGridViewNewWalkin.Columns.Contains("FirstName"))
+                dataGridViewNewWalkin.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewNewWalkin.Columns.Contains("LastName"))
+                dataGridViewNewWalkin.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewNewWalkin.Columns.Contains("RegistrationDate"))
+                dataGridViewNewWalkin.Columns["RegistrationDate"].HeaderText = "Registration Date";
+
         }
 
         public void LoadOldWalkInMembers()
@@ -118,6 +140,15 @@ namespace GymMembershipManagementSystem
             {
                 MessageBox.Show($"Error loading walk-in members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            if (dataGridViewOldWalkedin.Columns.Contains("FirstName"))
+                dataGridViewOldWalkedin.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridViewOldWalkedin.Columns.Contains("LastName"))
+                dataGridViewOldWalkedin.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridViewOldWalkedin.Columns.Contains("RegistrationDate"))
+                dataGridViewOldWalkedin.Columns["RegistrationDate"].HeaderText = "Registration Date";
         }
 
         private void HideSensitiveColumns(DataGridView dataGridView)

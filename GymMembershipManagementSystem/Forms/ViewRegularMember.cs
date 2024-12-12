@@ -14,8 +14,6 @@ namespace GymMembershipManagementSystem
     public partial class ViewRegularMember : Form
     {
         private SqlConnection sqlConnection;
-
-
         public ViewRegularMember()
         {
             InitializeComponent();
@@ -28,7 +26,6 @@ namespace GymMembershipManagementSystem
             buttonCheck.Visible = false;
             buttonCancel.Visible = false;
             buttonMultiDelete.Visible = true;
-
             buttonMultiDelete.Click += buttonMultiDelete_Click;
             buttonCheck.Click += buttonCheck_Click;
             buttonCancel.Click += buttonCancel_Click;
@@ -41,12 +38,10 @@ namespace GymMembershipManagementSystem
             dataGridViewRegular.RowTemplate.Height = 28;
             dataGridViewRegular.ColumnHeadersHeight = 28;
             dataGridViewRegular.EditMode = DataGridViewEditMode.EditOnEnter;
-
-            // Add TextChanged event for the search functionality
             textBoxSearchMember.TextChanged += (sender, e) =>
             {
                 searchTimer.Stop();
-                searchTimer.Start();  // This ensures a delay before applying the filter
+                searchTimer.Start(); 
             };
             if (dataGridViewRegular.Columns.Contains("FirstName"))
                 dataGridViewRegular.Columns["FirstName"].HeaderText = "First Name";
@@ -78,14 +73,11 @@ namespace GymMembershipManagementSystem
         {
             try
             {
-                // SQL query for RegularMember table
                 string query = "SELECT [RegularMemberId], [FirstName], [LastName], [DateOfBirth], [Age], [Gender], [Address], [MobileNumber], [Email], [EmergencyContactName], [EmergencyContactPhone], [DateJoined], [ProfileImage], [MembershipStartDate], [MembershipFee], [MembershipEndDate] FROM [dbo].[RegularMember]";
                 DataTable dataTable = new DataTable();
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, sqlConnection);
                 dataAdapter.Fill(dataTable);
-
-                // Add column for Remaining Days
                 dataTable.Columns.Add("RemainingDays", typeof(int));
 
                 foreach (DataRow row in dataTable.Rows)
@@ -106,8 +98,6 @@ namespace GymMembershipManagementSystem
 
                 dataTable.AcceptChanges();
                 dataGridViewRegular.DataSource = dataTable;
-
-
                 dataGridViewRegular.Columns["Age"].Visible = false;
                 dataGridViewRegular.Columns["DateOfBirth"].Visible = false;
                 dataGridViewRegular.Columns["ProfileImage"].Visible = false;
@@ -131,7 +121,6 @@ namespace GymMembershipManagementSystem
             searchTimer.Interval = 500; // 500ms delay
             searchTimer.Tick += searchTimer_Tick;
         }
-
         private void FilterData()
         {
             string searchTerm = textBoxSearchMember.Text.ToLower();
@@ -151,14 +140,10 @@ namespace GymMembershipManagementSystem
                                   row["MobileNumber"].ToString().ToLower().Contains(searchTerm)).ToList();
 
                 DataTable filteredDataTable = dataTable.Clone();
-
-                // Add matching rows to the filtered DataTable first
                 foreach (var row in filteredRows)
                 {
                     filteredDataTable.ImportRow(row);
                 }
-
-                // Add remaining rows to the filtered DataTable after
                 var remainingRows = dataTable.AsEnumerable()
                     .Where(row => !filteredRows.Contains(row)).ToList();
 
@@ -166,8 +151,6 @@ namespace GymMembershipManagementSystem
                 {
                     filteredDataTable.ImportRow(row);
                 }
-
-                // Bind the filtered DataTable back to the DataGridView
                 dataGridViewRegular.DataSource = filteredDataTable;
 
                 // Optionally hide unwanted columns

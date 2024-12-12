@@ -36,6 +36,12 @@ namespace GymMembershipManagementSystem
             string guardianname = textBoxGuardianFullName.Text;
             string guardiannumber = textBoxGuardianNumber.Text;
             dateTimePickerDOB.ValueChanged += dateTimePickerDOB_ValueChanged;
+            // Attach events for numeric input and length validation
+            textBoxMobileNumber.KeyPress += TextBoxNumberOnly_KeyPress;
+            textBoxGuardianNumber.KeyPress += TextBoxNumberOnly_KeyPress;
+            textBoxMobileNumber.TextChanged += TextBoxLengthLimit_TextChanged;
+            textBoxGuardianNumber.TextChanged += TextBoxLengthLimit_TextChanged;
+
         }
         private void InitializeDatabaseConnection()
         {
@@ -271,15 +277,13 @@ namespace GymMembershipManagementSystem
         }
         private void CalculateAndSetAge()
         {
-            DateTime dob = dateTimePickerDOB.Value;
+            DateTime birthDate = dateTimePickerDOB.Value;
             DateTime today = DateTime.Today;
+            int age = today.Year - birthDate.Year;
 
-            int age = today.Year - dob.Year;
+            if (birthDate > today.AddYears(-age))
+                age--;
 
-            // Adjust for the case where the birthday hasn't occurred yet this year
-            if (dob.Date > today.AddYears(-age)) age--;
-
-            // Update the age textbox
             textBoxAge.Text = age.ToString();
         }
 
@@ -289,7 +293,6 @@ namespace GymMembershipManagementSystem
             {
                 if (cameraCaptureForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Set the captured image as the profile picture
                     pictureBoxMember.Image = cameraCaptureForm.CapturedImage;
                 }
             }
@@ -304,6 +307,26 @@ namespace GymMembershipManagementSystem
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBoxMember.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
+        private void TextBoxNumberOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only digits, backspace, and delete keys
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxLengthLimit_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            // Restrict the length of mobile and guardian numbers to 11
+            if (textBox.Text.Length > 11)
+            {
+                textBox.Text = textBox.Text.Substring(0, 11);
+                textBox.SelectionStart = textBox.Text.Length; // Keep cursor at the end
             }
         }
     }

@@ -24,6 +24,15 @@ namespace GymMembershipManagementSystem
             SetupDataGridView();
             LoadMemberData();
             LoadMembershipFeeChart();
+
+            if (dataGridStudentFeeTotal.Columns.Contains("FirstName"))
+                dataGridStudentFeeTotal.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridStudentFeeTotal.Columns.Contains("LastName"))
+                dataGridStudentFeeTotal.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridStudentFeeTotal.Columns.Contains("MembershipFee"))
+                dataGridStudentFeeTotal.Columns["MembershipFee"].HeaderText = "Membership Fee";
         }
         private void SetupDataGridView()
         {
@@ -32,6 +41,14 @@ namespace GymMembershipManagementSystem
             dataGridStudentFeeTotal.RowTemplate.Height = 28;
             dataGridStudentFeeTotal.ColumnHeadersHeight = 28;
 
+            if (dataGridStudentFeeTotal.Columns.Contains("FirstName"))
+                dataGridStudentFeeTotal.Columns["FirstName"].HeaderText = "First Name";
+
+            if (dataGridStudentFeeTotal.Columns.Contains("LastName"))
+                dataGridStudentFeeTotal.Columns["LastName"].HeaderText = "Last Name";
+
+            if (dataGridStudentFeeTotal.Columns.Contains("MembershipFee"))
+                dataGridStudentFeeTotal.Columns["MembershipFee"].HeaderText = "Membership Fee";
         }
         private void InitializeDatabaseConnection()
         {

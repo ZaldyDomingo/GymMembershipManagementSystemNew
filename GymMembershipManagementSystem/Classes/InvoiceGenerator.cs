@@ -35,14 +35,14 @@ namespace GymMembershipManagementSystem
                 XGraphics gfx = XGraphics.FromPdfPage(page);
 
                 // Fonts
-                XFont titleFont = new XFont("Arial", 20);
-                XFont headerFont = new XFont("Arial", 14);
-                XFont contentFont = new XFont("Arial", 12);
-                XFont noteFont = new XFont("Arial", 10);
+                XFont titleFont = new XFont("Times New Roman", 20);
+                XFont headerFont = new XFont("Times New Roman", 14);
+                XFont contentFont = new XFont("Times New Roman", 12);
+                XFont noteFont = new XFont("Times New Roman", 10);
 
                 // Gym Header
                 gfx.DrawString("C.H.C Gym – Challenge Health Club Alaminos", headerFont, XBrushes.Black, new XPoint(50, 40));
-                gfx.DrawString("Invoice", headerFont, XBrushes.Black, new XPoint(445, 40));
+                gfx.DrawString("Membership Receipt", headerFont, XBrushes.Black, new XPoint(445, 40));
                 gfx.DrawString("Fitness Gym Center", headerFont, XBrushes.Black, new XPoint(50, 60));
                 gfx.DrawString("3rd Floor Nicanor (Montemayor) Building", contentFont, XBrushes.Black, new XPoint(50, 100));
                 gfx.DrawString("Marcos Ave. Palamis Alaminos City.", contentFont, XBrushes.Black, new XPoint(50, 120));

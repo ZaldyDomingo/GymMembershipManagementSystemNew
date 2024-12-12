@@ -31,31 +31,31 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelClock = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.roundedPanel2 = new GymMembershipManagementSystem.Classes.roundedPanel();
             this.pictureBoxKey = new System.Windows.Forms.PictureBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.labelClock = new System.Windows.Forms.Label();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.roundedPanel1 = new GymMembershipManagementSystem.Classes.roundedPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.panelContainer.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKey)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -74,6 +74,37 @@
             this.panelContainer.Size = new System.Drawing.Size(924, 475);
             this.panelContainer.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.labelClock);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 452);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(924, 23);
+            this.panel3.TabIndex = 23;
+            // 
+            // labelClock
+            // 
+            this.labelClock.AutoSize = true;
+            this.labelClock.BackColor = System.Drawing.Color.Transparent;
+            this.labelClock.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClock.ForeColor = System.Drawing.Color.Black;
+            this.labelClock.Location = new System.Drawing.Point(3, 1);
+            this.labelClock.Name = "labelClock";
+            this.labelClock.Size = new System.Drawing.Size(46, 20);
+            this.labelClock.TabIndex = 17;
+            this.labelClock.Text = "Clock";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(924, 23);
+            this.panel2.TabIndex = 22;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateGray;
@@ -88,38 +119,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 310);
             this.panel1.TabIndex = 18;
-            // 
-            // roundedPanel2
-            // 
-            this.roundedPanel2.Controls.Add(this.pictureBoxKey);
-            this.roundedPanel2.Controls.Add(this.textBoxPassword);
-            this.roundedPanel2.CornerRadius = 30;
-            this.roundedPanel2.Location = new System.Drawing.Point(15, 164);
-            this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Padding = new System.Windows.Forms.Padding(10);
-            this.roundedPanel2.Size = new System.Drawing.Size(373, 51);
-            this.roundedPanel2.TabIndex = 21;
-            // 
-            // pictureBoxKey
-            // 
-            this.pictureBoxKey.BackColor = System.Drawing.Color.White;
-            this.pictureBoxKey.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxKey.Image")));
-            this.pictureBoxKey.Location = new System.Drawing.Point(328, 11);
-            this.pictureBoxKey.Name = "pictureBoxKey";
-            this.pictureBoxKey.Size = new System.Drawing.Size(34, 30);
-            this.pictureBoxKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxKey.TabIndex = 7;
-            this.pictureBoxKey.TabStop = false;
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.White;
-            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(19, 15);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(303, 23);
-            this.textBoxPassword.TabIndex = 7;
             // 
             // pictureBox3
             // 
@@ -149,6 +148,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Account Login";
             // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.Controls.Add(this.pictureBoxKey);
+            this.roundedPanel2.Controls.Add(this.textBoxPassword);
+            this.roundedPanel2.CornerRadius = 30;
+            this.roundedPanel2.Location = new System.Drawing.Point(15, 164);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.Padding = new System.Windows.Forms.Padding(10);
+            this.roundedPanel2.Size = new System.Drawing.Size(373, 51);
+            this.roundedPanel2.TabIndex = 21;
+            // 
+            // pictureBoxKey
+            // 
+            this.pictureBoxKey.BackColor = System.Drawing.Color.White;
+            this.pictureBoxKey.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxKey.Image")));
+            this.pictureBoxKey.Location = new System.Drawing.Point(328, 11);
+            this.pictureBoxKey.Name = "pictureBoxKey";
+            this.pictureBoxKey.Size = new System.Drawing.Size(34, 30);
+            this.pictureBoxKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxKey.TabIndex = 7;
+            this.pictureBoxKey.TabStop = false;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.BackColor = System.Drawing.Color.White;
+            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPassword.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(19, 14);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(303, 23);
+            this.textBoxPassword.TabIndex = 7;
+            // 
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -161,18 +192,6 @@
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // labelClock
-            // 
-            this.labelClock.AutoSize = true;
-            this.labelClock.BackColor = System.Drawing.Color.Transparent;
-            this.labelClock.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClock.ForeColor = System.Drawing.Color.Black;
-            this.labelClock.Location = new System.Drawing.Point(3, 1);
-            this.labelClock.Name = "labelClock";
-            this.labelClock.Size = new System.Drawing.Size(46, 20);
-            this.labelClock.TabIndex = 17;
-            this.labelClock.Text = "Clock";
             // 
             // checkBoxPassword
             // 
@@ -219,10 +238,6 @@
             this.textBoxUserName.Size = new System.Drawing.Size(303, 23);
             this.textBoxUserName.TabIndex = 5;
             // 
-            // clockTimer
-            // 
-            this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -233,24 +248,9 @@
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
-            // panel2
+            // clockTimer
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(924, 23);
-            this.panel2.TabIndex = 22;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.labelClock);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 452);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(924, 23);
-            this.panel3.TabIndex = 23;
+            this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
             // 
             // LoginForm
             // 
@@ -267,18 +267,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.panelContainer.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKey)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

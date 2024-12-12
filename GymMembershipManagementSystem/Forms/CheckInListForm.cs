@@ -27,8 +27,8 @@ namespace GymMembershipManagementSystem
         {
             dataGridViewCheckIns.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             dataGridViewCheckIns.DefaultCellStyle.Font = new Font("Century Gothic", 10);
-            dataGridViewCheckIns.RowTemplate.Height = 28;
-            dataGridViewCheckIns.ColumnHeadersHeight = 28;
+            dataGridViewCheckIns.RowTemplate.Height = 30;
+            dataGridViewCheckIns.ColumnHeadersHeight = 30;
 
         }
         public void UpdateDate(DateTime newDate)

@@ -80,16 +80,28 @@ namespace GymMembershipManagementSystem
         private void MaskedMobileNumber()
         {
             textBoxMobileNumber.ForeColor = Color.Gray;
-            // Use Singleton Pattern for placeholder management
             MaskingMethod.Instance.AddPlaceholder(textBoxMobileNumber, "Mobile Number");
-            textBoxMobileNumber.KeyPress += MaskingMethod.Instance.ValidateNameInput;
+            textBoxMobileNumber.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            };
+            textBoxMobileNumber.TextChanged += (sender, e) =>
+            {
+                if (textBoxMobileNumber.Text.Length > 11)
+                {
+                    textBoxMobileNumber.Text = textBoxMobileNumber.Text.Substring(0, 11);
+                    textBoxMobileNumber.SelectionStart = textBoxMobileNumber.Text.Length;
+                }
+            };
             textBoxMobileNumber.Enter += (sender, e) => MaskingMethod.Instance.RemovePlaceholder(textBoxMobileNumber, "Mobile Number");
             textBoxMobileNumber.Leave += (sender, e) => MaskingMethod.Instance.AddPlaceholder(textBoxMobileNumber, "Mobile Number");
         }
         private void MaskedEmail()
         {
             textBoxEmail.ForeColor = Color.Gray;
-            // Use Singleton Pattern for placeholder management
             MaskingMethod.Instance.AddPlaceholder(textBoxEmail, "Email");
             textBoxEmail.KeyPress += MaskingMethod.Instance.ValidateNameInput;
             textBoxEmail.Enter += (sender, e) => MaskingMethod.Instance.RemovePlaceholder(textBoxEmail, "Email");
@@ -98,7 +110,6 @@ namespace GymMembershipManagementSystem
         private void MaskedGuardianFullName()
         {
             textBoxGuardianFullName.ForeColor = Color.Gray;
-            // Use Singleton Pattern for placeholder management
             MaskingMethod.Instance.AddPlaceholder(textBoxGuardianFullName, "Full Name");
             textBoxGuardianFullName.KeyPress += MaskingMethod.Instance.ValidateNameInput;
             textBoxGuardianFullName.Enter += (sender, e) => MaskingMethod.Instance.RemovePlaceholder(textBoxGuardianFullName, "Full Name");
@@ -107,12 +118,26 @@ namespace GymMembershipManagementSystem
         private void MaskedGuardianMobileNumber()
         {
             textBoxGuardianNumber.ForeColor = Color.Gray;
-            // Use Singleton Pattern for placeholder management
             MaskingMethod.Instance.AddPlaceholder(textBoxGuardianNumber, "Mobile Number");
-            textBoxGuardianNumber.KeyPress += MaskingMethod.Instance.ValidateNameInput;
+            textBoxGuardianNumber.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            };
+            textBoxGuardianNumber.TextChanged += (sender, e) =>
+            {
+                if (textBoxGuardianNumber.Text.Length > 11)
+                {
+                    textBoxGuardianNumber.Text = textBoxGuardianNumber.Text.Substring(0, 11);
+                    textBoxGuardianNumber.SelectionStart = textBoxGuardianNumber.Text.Length;
+                }
+            };
             textBoxGuardianNumber.Enter += (sender, e) => MaskingMethod.Instance.RemovePlaceholder(textBoxGuardianNumber, "Mobile Number");
             textBoxGuardianNumber.Leave += (sender, e) => MaskingMethod.Instance.AddPlaceholder(textBoxGuardianNumber, "Mobile Number");
         }
+
         private void buttonRegister_Click_1(object sender, EventArgs e)
         {
             try

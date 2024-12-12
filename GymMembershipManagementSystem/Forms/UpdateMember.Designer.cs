@@ -169,7 +169,7 @@
             this.textBoxGuardianNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxGuardianNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGuardianNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGuardianNumber.Location = new System.Drawing.Point(44, 639);
+            this.textBoxGuardianNumber.Location = new System.Drawing.Point(44, 640);
             this.textBoxGuardianNumber.Name = "textBoxGuardianNumber";
             this.textBoxGuardianNumber.Size = new System.Drawing.Size(246, 21);
             this.textBoxGuardianNumber.TabIndex = 86;
@@ -179,7 +179,7 @@
             this.textBoxGuardianFullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxGuardianFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGuardianFullName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGuardianFullName.Location = new System.Drawing.Point(44, 590);
+            this.textBoxGuardianFullName.Location = new System.Drawing.Point(44, 591);
             this.textBoxGuardianFullName.Name = "textBoxGuardianFullName";
             this.textBoxGuardianFullName.Size = new System.Drawing.Size(246, 21);
             this.textBoxGuardianFullName.TabIndex = 84;
@@ -280,7 +280,7 @@
             this.textBoxAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAddress.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddress.Location = new System.Drawing.Point(44, 272);
+            this.textBoxAddress.Location = new System.Drawing.Point(44, 273);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(515, 21);
             this.textBoxAddress.TabIndex = 97;
@@ -290,7 +290,7 @@
             this.textBoxMobileNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxMobileNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMobileNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMobileNumber.Location = new System.Drawing.Point(44, 417);
+            this.textBoxMobileNumber.Location = new System.Drawing.Point(44, 418);
             this.textBoxMobileNumber.Name = "textBoxMobileNumber";
             this.textBoxMobileNumber.Size = new System.Drawing.Size(292, 21);
             this.textBoxMobileNumber.TabIndex = 96;
@@ -300,7 +300,7 @@
             this.textBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmail.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(44, 481);
+            this.textBoxEmail.Location = new System.Drawing.Point(44, 482);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(515, 21);
             this.textBoxEmail.TabIndex = 95;
@@ -310,7 +310,7 @@
             this.textBoxAge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAge.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAge.Location = new System.Drawing.Point(423, 346);
+            this.textBoxAge.Location = new System.Drawing.Point(423, 347);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.ReadOnly = true;
             this.textBoxAge.Size = new System.Drawing.Size(136, 21);
@@ -343,7 +343,7 @@
             this.textBoxFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFirstName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstName.Location = new System.Drawing.Point(44, 211);
+            this.textBoxFirstName.Location = new System.Drawing.Point(44, 212);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(234, 21);
             this.textBoxFirstName.TabIndex = 91;
@@ -387,7 +387,7 @@
             this.textBoxLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLastName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastName.Location = new System.Drawing.Point(325, 211);
+            this.textBoxLastName.Location = new System.Drawing.Point(325, 212);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(234, 21);
             this.textBoxLastName.TabIndex = 87;
@@ -420,7 +420,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(45, 188);
+            this.label4.Location = new System.Drawing.Point(45, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 112;
@@ -430,7 +430,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(482, 188);
+            this.label7.Location = new System.Drawing.Point(482, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 17);
             this.label7.TabIndex = 113;
@@ -450,7 +450,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(420, 322);
+            this.label9.Location = new System.Drawing.Point(420, 324);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 17);
             this.label9.TabIndex = 115;
@@ -460,7 +460,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(45, 389);
+            this.label10.Location = new System.Drawing.Point(45, 391);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(107, 17);
             this.label10.TabIndex = 116;
@@ -470,7 +470,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(45, 456);
+            this.label11.Location = new System.Drawing.Point(45, 458);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 17);
             this.label11.TabIndex = 117;
@@ -480,7 +480,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(45, 563);
+            this.label12.Location = new System.Drawing.Point(45, 565);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 17);
             this.label12.TabIndex = 118;
@@ -490,7 +490,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(45, 616);
+            this.label13.Location = new System.Drawing.Point(45, 618);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 17);
             this.label13.TabIndex = 119;
