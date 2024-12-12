@@ -36,7 +36,8 @@ namespace GymMembershipManagementSystem
 
                 // Fonts
                 XFont titleFont = new XFont("Times New Roman", 20);
-                XFont headerFont = new XFont("Times New Roman", 14);
+                XFont headerFont = new XFont("Times New Roman", 16);
+                XFont anotherFont = new XFont("Times New Roman", 12);
                 XFont contentFont = new XFont("Times New Roman", 12);
                 XFont noteFont = new XFont("Times New Roman", 10);
 
@@ -52,7 +53,7 @@ namespace GymMembershipManagementSystem
                 gfx.DrawString($"Date: {startDate:yyyy-MM-dd}", contentFont, XBrushes.Black,new XPoint(page.Width.Point - 150, XUnit.FromPoint(60)));
 
                 // Customer Information
-                gfx.DrawString("For:", headerFont, XBrushes.Black, new XPoint(50, 180));
+                gfx.DrawString("For:", anotherFont, XBrushes.Black, new XPoint(50, 180));
                 gfx.DrawString($"{firstName} {lastName}", contentFont, XBrushes.Black, new XPoint(80, 180));
                 gfx.DrawString(address, contentFont, XBrushes.Black, new XPoint(80, 200));
                 gfx.DrawString(mobileNumber, contentFont, XBrushes.Black, new XPoint(80, 220));

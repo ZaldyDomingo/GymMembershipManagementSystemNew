@@ -122,7 +122,6 @@ namespace GymMembershipManagementSystem
                 }
                 else if (checkBoxRegular.Checked)
                 {
-                    // Query for Regular Members
                     query = @"
                     SELECT [RegularMemberId], [FirstName], [LastName], [DateOfBirth], [Age], [Gender], [Address], 
                            [MobileNumber], [Email], [EmergencyContactName], [EmergencyContactPhone], 
