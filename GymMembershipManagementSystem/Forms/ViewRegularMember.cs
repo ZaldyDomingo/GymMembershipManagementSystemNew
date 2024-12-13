@@ -301,16 +301,17 @@ namespace GymMembershipManagementSystem
 
                     foreach (int id in memberIds)
                     {
+                        // Insert member data into ArchivedMembers table
                         string insertArchivedQuery = @"
-                        INSERT INTO ArchivedMembers
-                        (RegularMemberId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
-                        EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
-                        MembershipFee, MembershipEndDate)
-                        SELECT RegularMemberId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
-                           EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
-                           MembershipFee, MembershipEndDate
-                        FROM RegularMember
-                        WHERE RegularMemberId = @RegularMemberId";
+                INSERT INTO ArchivedMembers
+                (RegularMemberId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
+                EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
+                MembershipFee, MembershipEndDate)
+                SELECT RegularMemberId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
+                    EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
+                    MembershipFee, MembershipEndDate
+                FROM RegularMember
+                WHERE RegularMemberId = @RegularMemberId";
 
                         using (SqlCommand insertCommand = new SqlCommand(insertArchivedQuery, connection))
                         {
@@ -318,18 +319,20 @@ namespace GymMembershipManagementSystem
                             insertCommand.ExecuteNonQuery();
                         }
 
-                        string deleteMemberQuery = "DELETE FROM RegularMember WHERE RegularMemberId = @RegularMemberId";
-                        using (SqlCommand deleteCommand = new SqlCommand(deleteMemberQuery, connection))
-                        {
-                            deleteCommand.Parameters.AddWithValue("@RegularMemberId", id);
-                            deleteCommand.ExecuteNonQuery();
-                        }
-
+                        // Delete related check-in data from RegularMemberCheckIn
                         string deleteCheckInQuery = "DELETE FROM RegularMemberCheckIn WHERE RegularMemberId = @RegularMemberId";
                         using (SqlCommand deleteCheckInCommand = new SqlCommand(deleteCheckInQuery, connection))
                         {
                             deleteCheckInCommand.Parameters.AddWithValue("@RegularMemberId", id);
                             deleteCheckInCommand.ExecuteNonQuery();
+                        }
+
+                        // Delete member data from RegularMember table
+                        string deleteMemberQuery = "DELETE FROM RegularMember WHERE RegularMemberId = @RegularMemberId";
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteMemberQuery, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@RegularMemberId", id);
+                            deleteCommand.ExecuteNonQuery();
                         }
                     }
                 }
@@ -339,6 +342,7 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while archiving members: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void buttonCheck_Click(object sender, EventArgs e)
         {
             try

@@ -304,7 +304,6 @@ namespace GymMembershipManagementSystem
                 dataGridViewStudent.ReadOnly = true; // Revert to read-only mode
             }
         }
-
         private void ArchiveSelectedStudents(List<int> studentIds)
         {
             try
@@ -317,20 +316,28 @@ namespace GymMembershipManagementSystem
                     {
                         // Archive student data
                         string insertArchivedQuery = @"
-                    INSERT INTO ArchivedStudentMember
-                    (StudentId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
-                    EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
-                    MembershipFee, MembershipEndDate, ArchiveDate)
-                    SELECT StudentId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
-                           EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
-                           MembershipFee, MembershipEndDate, GETDATE()
-                    FROM StudentMember
-                    WHERE StudentId = @StudentId";
+                INSERT INTO ArchivedStudentMember
+                (StudentId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
+                EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
+                MembershipFee, MembershipEndDate, ArchiveDate)
+                SELECT StudentId, FirstName, LastName, DateOfBirth, Age, Gender, Address, MobileNumber, Email, 
+                       EmergencyContactName, EmergencyContactPhone, DateJoined, ProfileImage, MembershipStartDate, 
+                       MembershipFee, MembershipEndDate, GETDATE()
+                FROM StudentMember
+                WHERE StudentId = @StudentId";
 
                         using (SqlCommand insertCommand = new SqlCommand(insertArchivedQuery, connection))
                         {
                             insertCommand.Parameters.AddWithValue("@StudentId", id);
                             insertCommand.ExecuteNonQuery();
+                        }
+
+                        // Remove check-in data related to the student
+                        string deleteCheckInQuery = "DELETE FROM StudentMemberCheckIn WHERE StudentId = @StudentId";
+                        using (SqlCommand deleteCheckInCommand = new SqlCommand(deleteCheckInQuery, connection))
+                        {
+                            deleteCheckInCommand.Parameters.AddWithValue("@StudentId", id);
+                            deleteCheckInCommand.ExecuteNonQuery();
                         }
 
                         // Remove the student from the original table
@@ -340,14 +347,6 @@ namespace GymMembershipManagementSystem
                             deleteCommand.Parameters.AddWithValue("@StudentId", id);
                             deleteCommand.ExecuteNonQuery();
                         }
-
-                        // Optionally remove check-in data related to the student (if not needed after archiving)
-                        string deleteCheckInQuery = "DELETE FROM StudentMemberCheckIn WHERE StudentId = @StudentId";
-                        using (SqlCommand deleteCheckInCommand = new SqlCommand(deleteCheckInQuery, connection))
-                        {
-                            deleteCheckInCommand.Parameters.AddWithValue("@StudentId", id);
-                            deleteCheckInCommand.ExecuteNonQuery();
-                        }
                     }
                 }
             }
@@ -356,6 +355,7 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while archiving students: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void buttonCheck_Click(object sender, EventArgs e)
         {
