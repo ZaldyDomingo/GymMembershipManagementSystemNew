@@ -45,7 +45,6 @@ namespace GymMembershipManagementSystem
         }
         public void ValidateNameInput(object sender, KeyPressEventArgs e)
         {
-            // Allow letters, digits, spaces, '-', '@', '.', and '_'
             if (!char.IsControl(e.KeyChar) &&
                 !char.IsLetterOrDigit(e.KeyChar) &&
                 e.KeyChar != ' ' &&
@@ -54,31 +53,25 @@ namespace GymMembershipManagementSystem
                 e.KeyChar != '.' &&
                 e.KeyChar != '_')
             {
-                e.Handled = true; // Prevent invalid character input
+                e.Handled = true;
             }
 
             TextBox textBox = sender as TextBox;
             if (textBox != null)
             {
-                // Prevent consecutive spaces
                 if (textBox.Text.EndsWith(" ") && e.KeyChar == ' ')
                 {
                     e.Handled = true;
                 }
 
-                // Prevent consecutive hyphens
                 if (textBox.Text.EndsWith("-") && e.KeyChar == '-')
                 {
                     e.Handled = true;
                 }
-
-                // Prevent consecutive '@'
                 if (textBox.Text.EndsWith("@") && e.KeyChar == '@')
                 {
                     e.Handled = true;
                 }
-
-                // Prevent multiple periods in a row
                 if (textBox.Text.EndsWith(".") && e.KeyChar == '.')
                 {
                     e.Handled = true;
