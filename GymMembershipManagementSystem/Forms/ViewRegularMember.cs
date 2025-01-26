@@ -41,7 +41,7 @@ namespace GymMembershipManagementSystem
             textBoxSearchMember.TextChanged += (sender, e) =>
             {
                 searchTimer.Stop();
-                searchTimer.Start(); 
+                searchTimer.Start();
             };
             if (dataGridViewRegular.Columns.Contains("FirstName"))
                 dataGridViewRegular.Columns["FirstName"].HeaderText = "First Name";
@@ -115,6 +115,7 @@ namespace GymMembershipManagementSystem
                 MessageBox.Show($"An error occurred while loading regular member data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void InitializeSearchTimer()
         {
             searchTimer = new Timer();
@@ -164,7 +165,7 @@ namespace GymMembershipManagementSystem
 
         private void searchTimer_Tick(object sender, EventArgs e)
         {
-            searchTimer.Stop();            
+            searchTimer.Stop();
             FilterData();
         }
 
@@ -233,7 +234,7 @@ namespace GymMembershipManagementSystem
             {
                 if (row.Cells["Select"] is DataGridViewCheckBoxCell checkBoxCell)
                 {
-                    checkBoxCell.Value = isChecked; 
+                    checkBoxCell.Value = isChecked;
                 }
             }
             dataGridViewRegular.RefreshEdit();
@@ -377,7 +378,7 @@ namespace GymMembershipManagementSystem
                 {
                     ArchiveSelectedMembers(selectedIds);
                     MessageBox.Show("Selected members have been archived.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadRegularMembers();  
+                    LoadRegularMembers();
                     ToggleMultiDeleteMode(false);
                 }
             }
@@ -403,16 +404,16 @@ namespace GymMembershipManagementSystem
             }
         }
 
-            private void timerLoad_Tick(object sender, EventArgs e)
-            {
-                LoadRegularMembers();
-                timerLoad.Stop();
-            }
-            private void InitializeLoadMemberTimer()
-            {
-                timerLoad.Interval = 500;
-                timerLoad.Tick += timerLoad_Tick;
-                timerLoad.Start();
-            }
+        private void timerLoad_Tick(object sender, EventArgs e)
+        {
+            LoadRegularMembers();
+            timerLoad.Stop();
+        }
+        private void InitializeLoadMemberTimer()
+        {
+            timerLoad.Interval = 500;
+            timerLoad.Tick += timerLoad_Tick;
+            timerLoad.Start();
+        }
     }
 }

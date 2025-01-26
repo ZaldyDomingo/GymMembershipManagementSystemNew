@@ -138,7 +138,7 @@
             this.dataGridViewRegular.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRegular.EnableHeadersVisualStyles = false;
             this.dataGridViewRegular.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewRegular.Location = new System.Drawing.Point(21, 128);
+            this.dataGridViewRegular.Location = new System.Drawing.Point(21, 117);
             this.dataGridViewRegular.Margin = new System.Windows.Forms.Padding(10);
             this.dataGridViewRegular.MultiSelect = false;
             this.dataGridViewRegular.Name = "dataGridViewRegular";
@@ -155,7 +155,7 @@
             this.dataGridViewRegular.RowHeadersWidth = 51;
             this.dataGridViewRegular.RowTemplate.Height = 80;
             this.dataGridViewRegular.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRegular.Size = new System.Drawing.Size(1291, 614);
+            this.dataGridViewRegular.Size = new System.Drawing.Size(1291, 394);
             this.dataGridViewRegular.TabIndex = 16;
             this.dataGridViewRegular.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegular_CellContentClick);
             this.dataGridViewRegular.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegular_CellDoubleClick_1);
